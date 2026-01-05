@@ -1,0 +1,19 @@
+data:
+  tickers: ["NVDA", "AAPL", "GOOGL", "MSFT", "AMZN"]
+  period: "10y"  
+  lookback_days: 60
+  test_size: 0.2
+
+model:
+  lstm:
+    units: 50
+    dropout: 0.2
+    epochs: 100
+    batch_size: 32
+  random_forest:
+    n_estimators: 100
+  seed: 42
+
+paths:
+  models_dir: "models"
+  logs_dir: "logs"

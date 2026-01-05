@@ -1,8 +1,9 @@
 numpy
 pandas
+matplotlib
 yfinance
 scikit-learn
 tensorflow
-pyyaml
+joblib
+seaborn
 gradio
-matplotlib
