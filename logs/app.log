@@ -1016,3 +1016,7 @@
 2026-02-18 17:08:00,840 - SklearnModel - INFO - Pickling model to models\AMZN_linear_regression.pkl
 2026-02-18 17:08:00,840 - SklearnModel - INFO - Pickling model to models\AMZN_linear_regression.pkl
 2026-02-18 17:08:00,852 - Main - INFO - System execution completed successfully.
+2026-02-18 17:14:03,133 - src.data_loader - INFO - Acquiring market data for: NVDA
+2026-02-18 17:14:06,264 - src.data_loader - INFO - Ingestion successful: 2514 records loaded.
+2026-02-18 17:14:06,266 - src.feature_eng - INFO - Preprocessing complete. Train size: 2011, Test inputs: 563
+2026-02-18 17:14:06,267 - App - INFO - Loading model: NVDA_linear_regression

@@ -1,0 +1,43 @@
+name: Daily Stock Prediction Pipeline
+
+on:
+  # 1. Scheduled run (Mon-Fri at 22:00 UTC / ~5:00 PM EST after US markets close)
+  schedule:
+    - cron: '0 22 * * 1-5'
+
+  # 2. Allows manual trigger from GitHub UI anytime for testing
+  workflow_dispatch:
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repo code
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Python 3.12
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      # Step 3: Install dependencies
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # Step 4: Execute training and prediction pipeline
+      - name: Execute Main Pipeline
+        run: |
+          python main.py
+
+      # Step 5: Commit and push updated models and logs back to GitHub
+      - name: Commit Updated Models and Logs
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(ci): automated daily prediction & model update [skip ci]"
+          file_pattern: "models/* logs/*"
