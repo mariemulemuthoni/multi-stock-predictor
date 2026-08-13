@@ -1074,3 +1074,21 @@
 2026-08-12 22:45:38,929 - src.data_loader - INFO - Acquiring market data for: AMZN
 2026-08-12 22:45:38,943 - src.data_loader - ERROR - API returned empty dataset for: AMZN
 2026-08-12 22:45:38,943 - Main - INFO - System execution completed successfully.
+2026-08-13 22:47:32,227 - Main - INFO - Initializing Stock Prediction System...
+2026-08-13 22:47:32,228 - src.trainer - INFO - Starting batch training for: ['NVDA', 'AAPL', 'GOOGL', 'MSFT', 'AMZN']
+2026-08-13 22:47:32,228 - src.trainer - INFO - --- Processing Asset: NVDA ---
+2026-08-13 22:47:32,228 - src.data_loader - INFO - Acquiring market data for: NVDA
+2026-08-13 22:47:32,252 - src.data_loader - ERROR - API returned empty dataset for: NVDA
+2026-08-13 22:47:32,252 - src.trainer - INFO - --- Processing Asset: AAPL ---
+2026-08-13 22:47:32,252 - src.data_loader - INFO - Acquiring market data for: AAPL
+2026-08-13 22:47:32,265 - src.data_loader - ERROR - API returned empty dataset for: AAPL
+2026-08-13 22:47:32,265 - src.trainer - INFO - --- Processing Asset: GOOGL ---
+2026-08-13 22:47:32,265 - src.data_loader - INFO - Acquiring market data for: GOOGL
+2026-08-13 22:47:32,278 - src.data_loader - ERROR - API returned empty dataset for: GOOGL
+2026-08-13 22:47:32,278 - src.trainer - INFO - --- Processing Asset: MSFT ---
+2026-08-13 22:47:32,278 - src.data_loader - INFO - Acquiring market data for: MSFT
+2026-08-13 22:47:32,291 - src.data_loader - ERROR - API returned empty dataset for: MSFT
+2026-08-13 22:47:32,291 - src.trainer - INFO - --- Processing Asset: AMZN ---
+2026-08-13 22:47:32,291 - src.data_loader - INFO - Acquiring market data for: AMZN
+2026-08-13 22:47:32,303 - src.data_loader - ERROR - API returned empty dataset for: AMZN
+2026-08-13 22:47:32,303 - Main - INFO - System execution completed successfully.
