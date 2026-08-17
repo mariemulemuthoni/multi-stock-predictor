@@ -1110,3 +1110,7 @@
 2026-08-14 22:27:56,048 - src.data_loader - INFO - Acquiring market data for: AMZN
 2026-08-14 22:27:56,061 - src.data_loader - ERROR - API returned empty dataset for: AMZN
 2026-08-14 22:27:56,061 - Main - INFO - System execution completed successfully.
+2026-08-17 16:38:40,304 - src.data_loader - INFO - Acquiring market data for: NVDA
+2026-08-17 16:38:47,390 - src.data_loader - INFO - Ingestion successful: 2513 records loaded.
+2026-08-17 16:38:47,393 - src.feature_eng - INFO - Preprocessing complete. Train size: 2010, Test inputs: 563
+2026-08-17 16:38:47,394 - App - INFO - Loading model: NVDA_lstm
