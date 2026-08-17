@@ -41,4 +41,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore(ci): automated daily prediction & model update [skip ci]"
-          file_pattern: "models/* logs/*"
+          file_pattern: "models/* logs/* MODEL_PERFORMANCE.md"
