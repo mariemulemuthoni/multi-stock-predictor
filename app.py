@@ -83,7 +83,7 @@ def make_prediction(ticker, model_type):
         return f"Error: {str(e)}", None
 
 # Gradio UI Layout
-with gr.Blocks(title="Institutional Stock Predictor") as demo:
+with gr.Blocks(title="Stock Predictor Interface") as demo:
     gr.Markdown("# 📈 Multi-Asset Price Predictor")
     gr.Markdown("Select an asset and a model to forecast the next closing price.")
     

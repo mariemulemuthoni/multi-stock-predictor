@@ -1,12 +1,14 @@
 import yfinance as yf
 import pandas as pd
+import requests
+import time
 from typing import Optional, List
 from src.utils import setup_logger
 
 class MarketDataManager:
     """
     Manages data ingestion from external financial APIs.
-    Handles connectivity errors and schema normalization.
+    Handles connectivity errors, rate limiting, and schema normalization.
     """
 
     def __init__(self, tickers: List[str], period: str = "10y"):
@@ -16,7 +18,8 @@ class MarketDataManager:
 
     def fetch_data(self, ticker: str) -> Optional[pd.DataFrame]:
         """
-        Retrieves historical OHLC data for a specific asset.
+        Retrieves historical OHLC data for a specific asset using a custom session
+        to bypass datacenter IP rate limits.
         
         Returns:
             pd.DataFrame: A clean DataFrame containing only the 'Close' price.
@@ -27,7 +30,17 @@ class MarketDataManager:
         self.logger.info(f"Acquiring market data for: {ticker}")
         
         try:
-            df = yf.download(ticker, period=self.period, progress=False, auto_adjust=True)
+            # 1. Create a custom session with a standard web browser User-Agent
+            session = requests.Session()
+            session.headers.update({
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            })
+            
+            # 2. Add a 2-second delay to prevent tripping rate limits
+            time.sleep(2)
+            
+            # 3. Pass the custom session to yfinance
+            df = yf.download(ticker, period=self.period, progress=False, auto_adjust=True, session=session)
             
             if df.empty:
                 self.logger.error(f"API returned empty dataset for: {ticker}")
